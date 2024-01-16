@@ -5,7 +5,9 @@ export default defineNuxtConfig({
   // auto import works for components and some other things
   // we can add an alias
   alias: {
-    '@': resolve(__dirname, '/'), // '/' is the root of this project, allows dynamic imports
+    // '/' is the root of this project, allows dynamic imports, OLD WAY
+    // '@': resolve(__dirname, '/'), 
+    assets: "/<rootDir>/assets",
   },
   css: ['~/assets/main.scss'],
   postcss: {
