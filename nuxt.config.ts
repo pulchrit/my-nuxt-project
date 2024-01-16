@@ -9,6 +9,10 @@ export default defineNuxtConfig({
     // '@': resolve(__dirname, '/'), 
     assets: "/<rootDir>/assets",
   },
+  // If you intall a nuxt module, you can configure it here!
+  modules: [
+    '@nuxt/content',
+  ],
   css: ['~/assets/main.scss'],
   postcss: {
     plugins: {
