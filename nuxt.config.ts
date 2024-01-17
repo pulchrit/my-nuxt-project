@@ -22,4 +22,6 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
+  // temporarily turning this to spa app (or static app, you need to do this too)
+  // just to show that useFecth works for both client and server side rendering, ssr: false,
 });

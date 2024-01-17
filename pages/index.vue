@@ -11,12 +11,31 @@
   // const counter = useCounter();
 
   // counter example using Pinia state
-  const store = useCounterStoreSetup();
+  // const store = useCounterStoreSetup();
   // console.log('store', store);
 
   // using the server/api/hello api endpoint
-  const response = await $fetch('/api/hello');
-  console.log('response', response);
+  // const response = await $fetch('/api/hello');
+  // console.log('response', response);
+
+  // using the server/api/products endpoint with useFetch, client-side rendering or server-side rendering
+  // YOU CAN destructure the data value here!
+  // useFetch is async!
+  // Pass in the endpoint url
+  // this data (renamed to products) is a ref()!! Must access it with .value, 
+  // and turn that value Proxy into a raw JS OBJECT using toRaw() to work with
+  // the data in the setup script.
+  // OR, you can pass the transform option to pull the data like below
+  // const { data: products } = await useFetch('/api/products', {
+  //   transform: (_products) => _products.data,
+  //   },
+  // );
+
+  // example with useLazyFetch to show a loading indicator while data is pending
+  // You need to ensure your endpoint returns a promise with a pending state!!
+  const { data: products, pending } = await useLazyFetch("/api/products", {
+    transform: (_products) => _products.data,
+  })
 </script>
 
 <template>
@@ -36,6 +55,15 @@
     <!-- <ContentDoc /> -->
 
     <!-- Counter example for Nuxt shared state from useState -->
-   <Counter />
+   <!-- <Counter /> -->
+
+   <!-- useFetch example works for both client-side rendered app and server side rendered app-->
+   <!--  The products ref is automatically unwrapped in the template, just like
+    any ref() -->
+    <!-- this just renders the array to the screen -->
+    <!-- <p>{{ products }}</p> -->
+
+    <!-- useLazyFetch exampel with loading indicator while data is pending -->
+    <p>{{  pending ? "Data is loading..." : products }}</p>
 </div>
 </template>
