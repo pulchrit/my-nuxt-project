@@ -3,8 +3,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
   // with the .global suffix, this middleware is available to all routes!
   // if you don't want this to be global, specify in your specific page 
   // which middleware you want to intercept nav to the page
-  console.log('to', to);
-  console.log('from', from);
+  // console.log('to', to);
+  // console.log('from', from);
   const isLoggedIn = false;
   if (isLoggedIn) {
     // redirecto to the to! which is where they were going

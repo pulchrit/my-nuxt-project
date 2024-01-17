@@ -12,7 +12,11 @@
 
   // counter example using Pinia state
   const store = useCounterStoreSetup();
-  console.log('store', store);
+  // console.log('store', store);
+
+  // using the server/api/hello api endpoint
+  const response = await $fetch('/api/hello');
+  console.log('response', response);
 </script>
 
 <template>

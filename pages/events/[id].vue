@@ -3,7 +3,7 @@
   // available on client and server
   const nuxt = useNuxtApp();
   // const route = useRoute();
-  console.log(nuxt)
+  // console.log(nuxt)
 </script>
 
 <template>
