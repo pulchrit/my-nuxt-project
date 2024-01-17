@@ -33,9 +33,14 @@
 
   // example with useLazyFetch to show a loading indicator while data is pending
   // You need to ensure your endpoint returns a promise with a pending state!!
-  const { data: products, pending } = await useLazyFetch("/api/products", {
-    transform: (_products) => _products.data,
-  })
+  // const { data: products, pending } = await useLazyFetch("/api/products", {
+  //   transform: (_products) => _products.data,
+  // })
+
+  // example with useAsyncData and $fetch
+  const { data: productCount, pending } = await useAsyncData("products", () =>  $fetch("/api/products"));
+  // allow for manual refresh
+  const refresh = () => refreshNuxtData("products");
 </script>
 
 <template>
@@ -63,7 +68,11 @@
     <!-- this just renders the array to the screen -->
     <!-- <p>{{ products }}</p> -->
 
-    <!-- useLazyFetch exampel with loading indicator while data is pending -->
-    <p>{{  pending ? "Data is loading..." : products }}</p>
+    <!-- useLazyFetch example with loading indicator while data is pending -->
+    <!-- <p>{{  pending ? "Data is loading..." : products }}</p> -->
+
+    <!-- useAsyncData and $fetch example along with refresh -->
+    <p>{{ pending ? "Data is loading..." : productCount }}</p>
+    <button @click="refresh">Refresh</button>
 </div>
 </template>
