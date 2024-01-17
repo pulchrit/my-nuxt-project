@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   // If you intall a nuxt module, you can configure it here!
   modules: [
     '@nuxt/content',
+    '@pinia/nuxt',
   ],
   css: ['~/assets/main.scss'],
   postcss: {

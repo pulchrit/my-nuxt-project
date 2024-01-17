@@ -8,7 +8,11 @@
   // $sayHello("Melissa");
 
   // counter example for global state (uses useState in composables/state.ts)
-  const counter = useCounter();
+  // const counter = useCounter();
+
+  // counter example using Pinia state
+  const store = useCounterStoreSetup();
+  console.log('store', store);
 </script>
 
 <template>
