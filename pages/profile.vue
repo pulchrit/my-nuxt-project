@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 // definePageMeta is available globally without import
-definePageMeta({
-  layout: "custom",
-  middleware: "specificAuth",
-});
+  definePageMeta({
+    layout: "custom",
+    middleware: "specific-auth",
+  });
 </script>
 
 <template>

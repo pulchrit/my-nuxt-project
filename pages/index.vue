@@ -1,4 +1,42 @@
-<script setup>
+<script setup lang="ts">// be sure to have lang="ts" when using useHead
+  // useHead for the home page
+  useHead({
+    title: "Learning Nuxt Demo App",
+    meta: [
+      {
+        name: "description",
+        content: "Lots of different examples of how Nuxt works"
+      },
+      {
+        name: "keywords",
+        content: "Nuxt.js, Vue.js, learning"
+      },
+      {
+        name: "og:title",
+        content: "https://example.com/images/nuxt-course-og-image.jpg"
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image"
+      },
+      {
+        name: "twitter:title",
+        content: "Lots of different examples of how Nuxt works"
+      }, 
+      {
+        name: "twitter:description",
+        content: "Lots of different examples of how Nuxt works provided by the incomparable Guillaume"
+      },
+      {
+        name: "twitter:image",
+        content: "https://example.com/images/nuxt-course-twitter-image.jpg"
+      }
+    ],
+    bodyAttrs: {
+      class: 'test'
+    },
+    script: [ { children: "console.log('Hello world')"}]
+  });
   // Composable example for sayHello
   // const { sayHello } = useUtils();
   // sayHello(); // will log hello to the console using the useUtils composable
